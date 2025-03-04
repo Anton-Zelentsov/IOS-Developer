@@ -4,72 +4,60 @@
 //
 //  Created by macbook on 01.03.2025.
 //
-
 import Foundation
-/*
- Создать перечисление математических операций над одним или двумя числами (сложение, деление, умножение, вычитание, квадрат числа, корень и другие, какие вы хотите). Минимум 5 различных операций.
- И дан массив, который состоит из математической операции и числами, над которым операция выполняется. Вывести результат всех операций.
- Подсказка: Используйте enum с ассоциативными значениями.
- */
 
-
-// Через enum MathematicalOperationType. Местами получилось слишком замудренно.
-enum MathematicalOperation {
-    private enum MathematicalOperationType: String {
-        case sum = "Cумма"
-        case division = "Деление"
-        case multiplication = "Умножение"
-        case minus = "Минус"
-        case square = "Квадрат"
-        
-        init(mathemicalOperation: MathematicalOperation) {
-            switch mathemicalOperation {
-            case .sum(_, _):
-                self = .sum
-            case .division(_, _):
-                self = .division
-            case .multiplication(_, _):
-                self = .multiplication
-            case .minus(_, _):
-                self = .minus
-            case .square(_):
-                self = .square
-            }
-        }
-    }
+// Перечисление для математических операций
+public enum MathematicalOperation {
+    case sum(Double, Double) // Сложение
+    case division(Double, Double) // Деление
+    case multiplication(Double, Double) // Умножение
+    case minus(Double, Double) // Вычитание
+    case square(Double) // Квадрат числа
+    case squareRoot(Double) // Квадратный корень
     
-    case sum(Int, Int) // +
-    case division(Int, Int) // /
-    case multiplication(Int, Int) // *
-    case minus(Int, Int) // -
-    case square(Int) // ^
-    
-    private var resultOperation: Int {
-        var result = 0
+    // Вычисление результата операции
+    private var resultOperation: Double {
         switch self {
-        case .sum(let int, let int2):
-            result = int + int2
-        case .division(let int, let int2):
-            result = int / int2
-        case .multiplication(let int, let int2):
-            result = int * int2
-        case .minus(let int, let int2):
-            result = int - int2
-        case .square(let int):
-            result = int * int
+        case .sum(let a, let b):
+            return a + b
+        case .division(let a, let b):
+            return a / b
+        case .multiplication(let a, let b):
+            return a * b
+        case .minus(let a, let b):
+            return a - b
+        case .square(let a):
+            return a * a
+        case .squareRoot(let a):
+            return sqrt(a)
         }
-        return result
     }
-        
-    var result: String {
-        let operationTitle = MathematicalOperationType(mathemicalOperation: self).rawValue
-        var result = "\(operationTitle) - \(self.resultOperation)"
-        return result
+    
+    // Описание операции и результата
+    public var result: String {
+        let operationDescription: String
+        switch self {
+        case .sum(let a, let b):
+            operationDescription = "Сумма \(a) и \(b)"
+        case .division(let a, let b):
+            operationDescription = "Деление \(a) на \(b)"
+        case .multiplication(let a, let b):
+            operationDescription = "Умножение \(a) на \(b)"
+        case .minus(let a, let b):
+            operationDescription = "Вычитание \(b) из \(a)"
+        case .square(let a):
+            operationDescription = "Квадрат числа \(a)"
+        case .squareRoot(let a):
+            operationDescription = "Квадратный корень из \(a)"
+        }
+        return "\(operationDescription) = \(self.resultOperation)"
     }
 }
 
-func printOperationResult(with array: [MathematicalOperation]) {
+// Функция для вывода результатов операций
+public func printOperationResult(with array: [MathematicalOperation]) {
     for operation in array {
         print(operation.result)
     }
 }
+

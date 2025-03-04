@@ -4,25 +4,28 @@
 //
 //  Created by macbook on 01.03.2025.
 //
-
-import Foundation
-/*
- 3
- Дан массив строк. Нужно сгруппировать строки по количеству символов в ней, вывести результат.
- Подсказка: Используйте правильную коллекцию.
- */
-
-func getGroupedStrings(with array: [String]) -> [Int: [String]] {
+func groupStringsByLength(_ array: [String]) -> [Int: [String]] {
     var groupedStrings: [Int: [String]] = [:]
     
+    // Группируем строки по их длине
     for word in array {
         let length = word.count
-        if let _ = groupedStrings[length] {
-            // не придумал, как обойти проверку массива. Пробовал через guard, но получается еще хуже. Значение массива (_) нам не нужно, так как надо записывать не в копию, а в оригинальный массив
+        if groupedStrings[length] != nil {
             groupedStrings[length]?.append(word)
         } else {
             groupedStrings[length] = [word]
         }
     }
+    
     return groupedStrings
 }
+
+// Функция для вывода результата в нужном формате
+func printGroupedStrings(_ groupedStrings: [Int: [String]]) {
+    for key in groupedStrings.keys.sorted() {
+        if let values = groupedStrings[key] {
+            print("\(key) - \(values)")
+        }
+    }
+}
+

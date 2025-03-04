@@ -17,12 +17,12 @@ private enum BracketType: Character {
     case close = ")"
 }
 
-enum BracketSequenceType: String {
+public enum BracketSequenceType: String {
     case correct = "Корректная"
     case incorrect = "Некорректная"
 }
 
-func checkBrackets(in string: String) -> BracketSequenceType {
+public func checkBrackets(in string: String) -> BracketSequenceType {
     guard string.count >= 1 else { return .incorrect }
     
     var correctorValue = 0
@@ -41,3 +41,4 @@ func checkBrackets(in string: String) -> BracketSequenceType {
     }
     return correctorValue == 0 ? .correct : .incorrect
 }
+

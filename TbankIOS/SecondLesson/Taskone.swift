@@ -17,7 +17,7 @@ private enum SeparatorType: String {
     case emptySymbol = " "
 }
 
-func getUnicalWord(in string: String) -> Int {
+public func getUnicalWord(in string: String) -> Int {
     let string = string.lowercased().split(separator: SeparatorType.emptySymbol.rawValue)
     let unicalStrings = Set(string)
     return unicalStrings.count

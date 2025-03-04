@@ -11,8 +11,8 @@ import Foundation
  Дана строка текста, вывести количество уникальных слов в этой строке. Слова разделены пробелами, регистр не учитывается.
  Подсказка: Обратите внимание на методы работы со строками (split, lowercased) и использование коллекций.
  */
-class SecondLesson {
-    static func start() {
+class SecondLesson{
+    static func start(){
         let string1 = "apple Orange pineapple PEAR"
         let string2 = "apple aPPle appLe Apple"
         print("Задача 1")
@@ -40,15 +40,15 @@ class SecondLesson {
         // Дан массив строк. Нужно сгруппировать строки по количеству символов в ней, вывести результат.
         // Подсказка: Используйте правильную коллекцию.
         // */
-        
         let array1 = ["a", "bb", "b", "cccc"]
         let array2 = ["a", "b", "c"]
         
-        print("Задача 3")
-        print("--------------------------")
-        print(getGroupedStrings(with: array1))
-        print(getGroupedStrings(with: array2))
-        print("--------------------------")
+        let grouped1 = groupStringsByLength(array1)
+        let grouped2 = groupStringsByLength(array2)
+        
+        printGroupedStrings(grouped1)
+        print("---")
+        printGroupedStrings(grouped2)
         
         //    4
         // Есть словарь, в котором ключ - это имя студента, а значение - его оценка на экзамене (может быть nil, если не сдал). Нужно найти и вывести среднюю оценку только для студентов, у которых есть оценка. Если не сдали все, так и вывести.
@@ -60,17 +60,20 @@ class SecondLesson {
         print("--------------------------")
         countStudent(dict1)
         countStudent(dict2)
-        print("--------------------------")
+        print("---------------------------")
         /*
          5
          Создать перечисление математических операций над одним или двумя числами (сложение, деление, умножение, вычитание, квадрат числа, корень и другие, какие вы хотите). Минимум 5 различных операций.
          И дан массив, который состоит из математической операции и числами, над которым операция выполняется. Вывести результат всех операций.
          */
         
-        let array3: [MathematicalOperation] = [.sum(1, 2), .square(2)]
+        let operations: [MathematicalOperation] = [
+            .sum(1, 2),
+            .square(2)
+        ]
         print("Задача 5")
-        print("--------------------------")
-        printOperationResult(with: array3)
-        print("--------------------------")
+        print("---------------------------")
+        printOperationResult(with: operations)
+        print("---------------------------")
     }
 }
