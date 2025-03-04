@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  TbankIOS
-//
-//  Created by Анатолий Лушников on 04.03.2025.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -13,7 +6,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 

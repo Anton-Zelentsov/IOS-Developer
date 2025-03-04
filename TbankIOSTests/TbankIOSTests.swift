@@ -1,10 +1,3 @@
-//
-//  TbankIOSTests.swift
-//  TbankIOSTests
-//
-//  Created by Анатолий Лушников on 04.03.2025.
-//
-
 import XCTest
 @testable import TbankIOS
 

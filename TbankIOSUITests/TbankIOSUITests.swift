@@ -1,10 +1,3 @@
-//
-//  TbankIOSUITests.swift
-//  TbankIOSUITests
-//
-//  Created by Анатолий Лушников on 04.03.2025.
-//
-
 import XCTest
 
 final class TbankIOSUITests: XCTestCase {

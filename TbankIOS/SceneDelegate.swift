@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  TbankIOS
-//
-//  Created by Анатолий Лушников on 04.03.2025.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
