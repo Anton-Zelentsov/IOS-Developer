@@ -3,7 +3,6 @@
 //  Tbank-IOS
 //
 //  Created by macbook on 01.03.2025.
-//
 
 import Foundation
 
