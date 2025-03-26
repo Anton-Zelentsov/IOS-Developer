@@ -13,22 +13,22 @@
 import Foundation
 
 // Создаю класс Animal
-class Animal{
-    func speak(){
+class Animal {
+    func speak() {
         print("Animal sound")
     }
 }
 
 // Создаю подкласс Dog
-class Dog: Animal{
-    override func speak(){
+class Dog: Animal {
+    override func speak() {
         print("Woof!")
     }
 }
 
 // Создаю подкласс Cat
-class Cat: Animal{
-    override func speak(){
+class Cat: Animal {
+    override func speak() {
         print("Meow!")
     }
 }
