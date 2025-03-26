@@ -1,36 +1,72 @@
 import Foundation
-class FiveLesson{
-    static func printMessage(){
-        // Задание 5
-        print("Задание 5")
+// Задание 5
+class FiveLesson {
+    static func demonstrateReferenceCycles() {
+        print("Пример с циклом сильных ссылок")
+        
         var person: Person? = Person(name: "Anton", car: nil)
         var car: Car? = Car(model: "Bugatti Chiron", owner: nil)
-        // Циклические ссылки
+        
+        print("После создания объектов:")
+        print("Счетчик ссылок Person: \(getRetainCount(person!))")
+        print("Счетчик ссылок Car: \(getRetainCount(car!))")
+        
+        // Создаю цикл сильных ссылок
         person?.car = car
         car?.owner = person
-
-        // Проверка этих ссылок (без weak)
-        print("Before setting to nil:")
+        
+        print("После создания цикла ссылок:")
+        print("Счетчик ссылок Person: \(getRetainCount(person!))")
+        print("Счетчик ссылок Car: \(getRetainCount(car!))")
+        
+        print("Перед установкой в nil:")
         print("Person's car: \(person?.car?.model ?? "No car")")
         print("Car's owner: \(car?.owner?.name ?? "No owner")")
-
-        // Освобождаю объекты, т.е nil
+        
         person = nil
         car = nil
-
-        // Делаю провекру на освобождение памяти
-        print("After setting to nil:")
+        
+        print("После установки в nil (объекты не освобождаются из-за цикла)")
+    }
+    
+    static func demonstrateWeakReferenceSolution() {
+        print("Пример с weak ссылкой")
+        
+        var person: Person? = Person(name: "Anton", car: nil)
+        var car: WeakReferenceCar? = WeakReferenceCar(model: "Porsche 911", weakOwner: nil)
+        
+        print("После создания объектов:")
+        print("Счетчик ссылок Person: \(getRetainCount(person!))")
+        print("Счетчик ссылок Car: \(getRetainCount(car!))")
+        
+        // Устанавливаю ссылки
+        person?.car = car
+        car?.weakOwner = person
+        
+        print("После установки ссылок:")
+        print("Счетчик ссылок Person: \(getRetainCount(person!))")
+        print("Счетчик ссылок Car: \(getRetainCount(car!))")
+        
+        print("Перед установкой в nil:")
         print("Person's car: \(person?.car?.model ?? "No car")")
-        print("Car's owner: \(car?.owner?.name ?? "No owner")")
-        print("----------------------------")
-        // Задание 6
+        print("Car's owner: \(car?.weakOwner?.name ?? "No owner")")
+        
+        person = nil
+        car = nil
+        
+        print("После установки в nil (объекты освобождаются корректно)")
+    }
+    
+    static func demonstrateAnimals() {
         print("Задание 6")
-        // Создаю массив животных
         let animals: [Animal] = [Dog(), Cat(), Dog()]
-            // Делаю перебор
-        for animal in animals{
-                animal.speak()
+        for animal in animals {
+            animal.speak()
         }
-
+    }
+    static func printMessage() {
+        demonstrateReferenceCycles()
+        demonstrateWeakReferenceSolution()
+        demonstrateAnimals()
     }
 }

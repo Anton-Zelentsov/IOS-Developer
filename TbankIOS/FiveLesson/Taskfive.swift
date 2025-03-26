@@ -20,30 +20,49 @@
  После устранения циклической ссылки проверьте, что оба объекта корректно освобождаются из памяти, когда они больше не используются.
  */
 import Foundation
+
+// Вспомогательная функция для получения счетчика ссылок
+func getRetainCount(_ object: AnyObject) -> Int {
+    return CFGetRetainCount(object) - 1 // -> вычитаю 1, т.к функция временно увеличивает счетчик
+}
 // Создаю класс Person
-class Person{
+class Person {
     let name: String
-    var car: Car?  // -> ссылка на Car
+    var car: Car? // -> ссылка на Car
     
-    init(name: String, car: Car?){
+    init(name: String, car: Car?) {
         self.name = name
         self.car = car
     }
-    deinit{
+    
+    deinit {
         print("\(name) is deinitialized")
     }
 }
 
-// Создаю класс Car
-class Car{
+class Car {
     let model: String
-    weak var owner: Person?  // -> слабая ссылка на Person
+    var owner: Person? // -> сильная ссылка (для 1 примера)
     
-    init(model: String, owner: Person?){
+    init(model: String, owner: Person?) {
         self.model = model
         self.owner = owner
     }
-    deinit{
+    
+    deinit {
         print("\(model) is deinitialized")
+    }
+}
+
+class WeakReferenceCar: Car {
+    weak var weakOwner: Person? // -> Слабая ссылка (для 2 примера)
+    
+    init(model: String, weakOwner: Person?) {
+        self.weakOwner = weakOwner
+        super.init(model: model, owner: weakOwner)
+    }
+    
+    deinit {
+        print("\(model) is deinitialized (fixed version)")
     }
 }
