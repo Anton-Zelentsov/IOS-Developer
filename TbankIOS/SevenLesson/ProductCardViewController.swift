@@ -1,10 +1,10 @@
 import UIKit
 
-struct Product {
+struct selectedProduct {
     let brand: String
     let name: String
     let currentPrice: String
-    let oldPrice: String?
+    let oldPrice: String? // опционал
     let imageName: String
 }
 
@@ -12,43 +12,52 @@ class ProductCardViewController: UIViewController {
     
     private var currentProductIndex = 0
     
-    private let products: [Product] = [
-        Product(brand: "TOMMY HILFIGER",
-               name: "Мужские кроссовки Essential Leather",
-               currentPrice: "9 600 ₽",
-               oldPrice: "19 190 ₽",
-               imageName: "EssentialLeather"),
-        Product(brand: "NIKE",
-               name: "Кроссовки Air force 1",
-               currentPrice: "12 990 ₽",
-               oldPrice: "15 990 ₽",
-               imageName: "Airforce1"),
-        Product(brand: "ADIDAS",
-               name: "Кроссовки YEEZY BOOST 350 V2",
-               currentPrice: "14 999 ₽",
-               oldPrice: "17 999 ₽",
-               imageName: "YeezyBoost350V2"),
-        Product(brand: "PUMA",
-               name: "Кроссовки RS-X",
-               currentPrice: "8 490 ₽",
-               oldPrice: "10 990 ₽",
-               imageName: "RSX"),
-        Product(brand: "REEBOK",
-               name: "Кроссовки Classic Leather",
-               currentPrice: "7 990 ₽",
-               oldPrice: nil,
-               imageName: "ClassicLeather")
+    private let products: [selectedProduct] = [
+        selectedProduct(
+            brand: "TOMMY HILFIGER",
+            name: "Мужские кроссовки Essential Leather",
+            currentPrice: "9 600 ₽",
+            oldPrice: "19 190 ₽",
+            imageName: "EssentialLeather"
+        ),
+        selectedProduct(
+            brand: "NIKE",
+            name: "Кроссовки Air Force 1",
+            currentPrice: "12 990 ₽",
+            oldPrice: "15 990 ₽",
+            imageName: "Airforce1"
+        ),
+        selectedProduct(
+            brand: "ADIDAS",
+            name: "Кроссовки YEEZY BOOST 350 V2",
+            currentPrice: "14 999 ₽",
+            oldPrice: "17 999 ₽",
+            imageName: "YeezyBoost350V2"
+        ),
+        selectedProduct(
+            brand: "PUMA",
+            name: "Кроссовки RS-X",
+            currentPrice: "8 490 ₽",
+            oldPrice: "10 990 ₽",
+            imageName: "RSX"
+        ),
+        selectedProduct(
+            brand: "REEBOK",
+            name: "Кроссовки Classic Leather",
+            currentPrice: "7 990 ₽",
+            oldPrice: nil,
+            imageName: "ClassicLeather"
+        )
     ]
-    
+
     // UI элементы
     private let productImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.clipsToBounds = true
-        iv.layer.cornerRadius = 12
-        iv.backgroundColor = .systemGray6
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 12
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     // Бренд
     private let brandLabel: UILabel = {
