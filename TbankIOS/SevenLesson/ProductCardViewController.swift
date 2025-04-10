@@ -1,47 +1,40 @@
 import UIKit
 
-struct selectedProduct {
+struct Product {
     let brand: String
     let name: String
     let currentPrice: String
-    let oldPrice: String? // опционал
-    let imageName: String
+    let oldPrice: String?
+    let imageName: String?
 }
 
 class ProductCardViewController: UIViewController {
     
-    private var currentProductIndex = 0
+    private var selectedProductIndex = 0
     
-    private let products: [selectedProduct] = [
-        selectedProduct(
+    private let products: [Product] = [
+        Product(
             brand: "TOMMY HILFIGER",
             name: "Мужские кроссовки Essential Leather",
             currentPrice: "9 600 ₽",
             oldPrice: "19 190 ₽",
             imageName: "EssentialLeather"
         ),
-        selectedProduct(
+        Product(
             brand: "NIKE",
             name: "Кроссовки Air Force 1",
             currentPrice: "12 990 ₽",
             oldPrice: "15 990 ₽",
             imageName: "Airforce1"
         ),
-        selectedProduct(
-            brand: "ADIDAS",
-            name: "Кроссовки YEEZY BOOST 350 V2",
-            currentPrice: "14 999 ₽",
-            oldPrice: "17 999 ₽",
-            imageName: "YeezyBoost350V2"
-        ),
-        selectedProduct(
+        Product(
             brand: "PUMA",
             name: "Кроссовки RS-X",
             currentPrice: "8 490 ₽",
             oldPrice: "10 990 ₽",
             imageName: "RSX"
         ),
-        selectedProduct(
+        Product(
             brand: "REEBOK",
             name: "Кроссовки Classic Leather",
             currentPrice: "7 990 ₽",
@@ -51,7 +44,7 @@ class ProductCardViewController: UIViewController {
     ]
 
     // UI элементы
-    private let productImageView: UIImageView = {
+    private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
@@ -59,43 +52,14 @@ class ProductCardViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    // Бренд
-    private let brandLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        label.textColor = .darkGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    // Название
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.textColor = .black
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    // Ценник
-    private let priceStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 8
-        stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-    // Текущая цена
-    private let currentPriceLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    // Кнопка
-    private let nextButton: UIButton = {
+    
+    private let brandLabel = UILabel()
+    private let nameLabel = UILabel()
+    private let priceStackView = UIStackView()
+    private let currentPriceLabel = UILabel()
+    private let oldPriceLabel = UILabel()
+    
+    private lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Показать следующий товар", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
@@ -105,25 +69,44 @@ class ProductCardViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    // Жизненный цикл контролера
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        configureView()
+        setupButton()
         setupConstraints()
         updateProductCard()
+    }
+    
+    private func configureView() {
+        view.backgroundColor = .white
         
+        // Настройка лейблов
+        brandLabel.configure(fontSize: 16, weight: .semibold, color: .darkGray)
+        nameLabel.configure(fontSize: 20, weight: .bold, color: .black, lines: 0)
+        currentPriceLabel.configure(fontSize: 22, weight: .bold, color: .black)
+        oldPriceLabel.configure(fontSize: 16, weight: .regular, color: .gray)
+        
+        // Настройка StackView
+        priceStackView.axis = .horizontal
+        priceStackView.spacing = 8
+        priceStackView.alignment = .center
+        
+        // Добавляю лейблы цен в StackView
+        priceStackView.addArrangedSubview(currentPriceLabel)
+        priceStackView.addArrangedSubview(oldPriceLabel)
+        
+        // Добавляю все элементы на экран
+        [productImageView, brandLabel, nameLabel, priceStackView, nextButton].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+    }
+    
+    private func setupButton() {
         nextButton.addTarget(self, action: #selector(showNextProduct), for: .touchUpInside)
     }
     
-    private func setupView() {
-        view.backgroundColor = .white
-        view.addSubview(productImageView)
-        view.addSubview(brandLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(priceStackView)
-        view.addSubview(nextButton)
-    }
-    // Констрейны: картинка, бренд, ценник, кнопка
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             productImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -151,35 +134,48 @@ class ProductCardViewController: UIViewController {
     }
     
     private func updateProductCard() {
-        let product = products[currentProductIndex]
+        let product = products[selectedProductIndex]
         
-        productImageView.image = UIImage(named: product.imageName)
+        // Обновляю изображение продукта
+        productImageView.image = UIImage(named: product.imageName ?? "")
+        
+        // Обновляю текстовые данные
         brandLabel.text = product.brand
         nameLabel.text = product.name
         currentPriceLabel.text = product.currentPrice
         
-        // Очищаю основную память (стек) с ценниками
-        priceStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        priceStackView.addArrangedSubview(currentPriceLabel)
-        
-        // Добавляю старую цену, если она есть, нет старой цены только у REEBOK
+        // Обновляю oldPrice
         if let oldPrice = product.oldPrice {
-            let oldPriceLabel = UILabel()
-            oldPriceLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-            oldPriceLabel.textColor = .gray
-            let attributedString = NSMutableAttributedString(string: oldPrice)
-            attributedString.addAttribute(
-                .strikethroughStyle,
-                value: NSUnderlineStyle.single.rawValue,
-                range: NSRange(location: 0, length: attributedString.length)
-            )
-            oldPriceLabel.attributedText = attributedString
-            priceStackView.addArrangedSubview(oldPriceLabel)
+            oldPriceLabel.attributedText = oldPrice.strikethrough()
+            oldPriceLabel.isHidden = false
+        } else {
+            oldPriceLabel.isHidden = true
         }
     }
     
     @objc private func showNextProduct() {
-        currentProductIndex = (currentProductIndex + 1) % products.count
+        selectedProductIndex = (selectedProductIndex + 1) % products.count
         updateProductCard()
     }
 }
+
+extension UILabel {
+    func configure(fontSize: CGFloat, weight: UIFont.Weight, color: UIColor, lines: Int = 1) {
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
+        self.textColor = color
+        self.numberOfLines = lines
+    }
+}
+
+extension String {
+    func strikethrough() -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        attributedString.addAttribute(
+            .strikethroughStyle,
+            value: NSUnderlineStyle.single.rawValue,
+            range: NSRange(location: 0, length: self.count)
+        )
+        return attributedString
+    }
+}
+
