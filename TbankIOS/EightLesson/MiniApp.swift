@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: - Модель данных
+// Модель данных
 struct Product: Decodable {
     let id: Int
     let title: String
@@ -16,7 +16,7 @@ struct Product: Decodable {
     }
 }
 
-// MARK: - Протоколы
+// Протоколы
 protocol ImageListViewProtocol: AnyObject {
     func showLoading()
     func hideLoading()
@@ -37,7 +37,7 @@ protocol NetworkServiceProtocol {
     func downloadImage(from urlString: String, delegate: URLSessionDataDelegate)
 }
 
-// MARK: - Сетевой сервис
+// Сетевой сервис
 final class NetworkService: NetworkServiceProtocol {
     private let baseURL = "https://fakestoreapi.com"
     private let urlSession: URLSession
@@ -98,7 +98,7 @@ enum NetworkError: Error {
     case imageDownloadFailed
 }
 
-// MARK: - Презентер
+// Presenter
 final class ImageListPresenter: NSObject, ImageListPresenterProtocol, URLSessionDataDelegate {
     weak var view: ImageListViewProtocol?
     var networkService: NetworkServiceProtocol
@@ -161,7 +161,7 @@ final class ImageListPresenter: NSObject, ImageListPresenterProtocol, URLSession
         }
     }
     
-    // MARK: - URLSessionDataDelegate
+    // URL_Session_Data_Delegate
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         guard let url = dataTask.originalRequest?.url?.absoluteString else { return }
         
@@ -219,7 +219,7 @@ final class ImageListPresenter: NSObject, ImageListPresenterProtocol, URLSession
     }
 }
 
-// MARK: - Ассемблер модуля
+// Assembler module
 final class ImageListModuleAssembler {
     static func assemble() -> UIViewController {
         let view = ImageListViewController()
@@ -235,7 +235,7 @@ final class ImageListModuleAssembler {
     }
 }
 
-// MARK: - View Controller
+// View Controller
 final class ImageListViewController: UIViewController {
     var presenter: ImageListPresenterProtocol!
     
@@ -346,7 +346,7 @@ extension ImageListViewController: ImageListViewProtocol {
     }
 }
 
-// MARK: - Кастомная ячейка
+// Кастомная ячейка
 final class ProductCell: UITableViewCell {
     static let reuseIdentifier = "ProductCell"
     
@@ -383,7 +383,7 @@ final class ProductCell: UITableViewCell {
     }
 }
 
-// MARK: - TableView DataSource & Delegate
+// TableView DataSource and Delegate
 extension ImageListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfProducts
