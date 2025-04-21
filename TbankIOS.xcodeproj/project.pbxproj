@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5127D2D21D5E7E50F71EEEF7 /* Pods_TbankIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D3983B8C815F089D1F4EF2 /* Pods_TbankIOS.framework */; };
+		B65EED818757A16432A4AC04 /* Pods_TbankIOS_TbankIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E68EFD826F4EEE58D7509B4F /* Pods_TbankIOS_TbankIOSUITests.framework */; };
+		E44ADF472230DA84CE31FCD8 /* Pods_TbankIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAD3C7113F023FE204958B4 /* Pods_TbankIOSTests.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D88390822D76E91700BB5532 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,9 +30,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12FA09C759B8762600893657 /* Pods-TbankIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TbankIOS.debug.xcconfig"; path = "Target Support Files/Pods-TbankIOS/Pods-TbankIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		211510249BCA9A355C967168 /* Pods-TbankIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TbankIOSTests.release.xcconfig"; path = "Target Support Files/Pods-TbankIOSTests/Pods-TbankIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		229433AB0AE17E94B335EF81 /* Pods-TbankIOS-TbankIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TbankIOS-TbankIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-TbankIOS-TbankIOSUITests/Pods-TbankIOS-TbankIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		50D3983B8C815F089D1F4EF2 /* Pods_TbankIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TbankIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EE74781BE8D7671820DBF61 /* Pods-TbankIOS-TbankIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TbankIOS-TbankIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-TbankIOS-TbankIOSUITests/Pods-TbankIOS-TbankIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		90F1BEE92CEB5A2CAEC404A7 /* Pods-TbankIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TbankIOS.release.xcconfig"; path = "Target Support Files/Pods-TbankIOS/Pods-TbankIOS.release.xcconfig"; sourceTree = "<group>"; };
+		9C59BBAB7D3636E25C9B4CFB /* Pods-TbankIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TbankIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TbankIOSTests/Pods-TbankIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CEAD3C7113F023FE204958B4 /* Pods_TbankIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TbankIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88390682D76E91500BB5532 /* TbankIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TbankIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88390812D76E91700BB5532 /* TbankIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TbankIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D883908B2D76E91700BB5532 /* TbankIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TbankIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E68EFD826F4EEE58D7509B4F /* Pods_TbankIOS_TbankIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TbankIOS_TbankIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5127D2D21D5E7E50F71EEEF7 /* Pods_TbankIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44ADF472230DA84CE31FCD8 /* Pods_TbankIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,12 +96,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65EED818757A16432A4AC04 /* Pods_TbankIOS_TbankIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111A7D5B53B4C1A4FBE55DD9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				12FA09C759B8762600893657 /* Pods-TbankIOS.debug.xcconfig */,
+				90F1BEE92CEB5A2CAEC404A7 /* Pods-TbankIOS.release.xcconfig */,
+				229433AB0AE17E94B335EF81 /* Pods-TbankIOS-TbankIOSUITests.debug.xcconfig */,
+				7EE74781BE8D7671820DBF61 /* Pods-TbankIOS-TbankIOSUITests.release.xcconfig */,
+				9C59BBAB7D3636E25C9B4CFB /* Pods-TbankIOSTests.debug.xcconfig */,
+				211510249BCA9A355C967168 /* Pods-TbankIOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4819281871EF7CA27D99BF0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50D3983B8C815F089D1F4EF2 /* Pods_TbankIOS.framework */,
+				E68EFD826F4EEE58D7509B4F /* Pods_TbankIOS_TbankIOSUITests.framework */,
+				CEAD3C7113F023FE204958B4 /* Pods_TbankIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D883905F2D76E91500BB5532 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +133,8 @@
 				D88390842D76E91700BB5532 /* TbankIOSTests */,
 				D883908E2D76E91700BB5532 /* TbankIOSUITests */,
 				D88390692D76E91500BB5532 /* Products */,
+				111A7D5B53B4C1A4FBE55DD9 /* Pods */,
+				4819281871EF7CA27D99BF0C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D88390942D76E91700BB5532 /* Build configuration list for PBXNativeTarget "TbankIOS" */;
 			buildPhases = (
+				1352B531A7C5D743E74778AA /* [CP] Check Pods Manifest.lock */,
 				D88390642D76E91500BB5532 /* Sources */,
 				D88390652D76E91500BB5532 /* Frameworks */,
 				D88390662D76E91500BB5532 /* Resources */,
+				6A19E53F56A5A8865CA482CE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,8 +169,6 @@
 				D883906A2D76E91500BB5532 /* TbankIOS */,
 			);
 			name = TbankIOS;
-			packageProductDependencies = (
-			);
 			productName = TbankIOS;
 			productReference = D88390682D76E91500BB5532 /* TbankIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +177,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D88390992D76E91700BB5532 /* Build configuration list for PBXNativeTarget "TbankIOSTests" */;
 			buildPhases = (
+				E6937B78900BD3B82F48C495 /* [CP] Check Pods Manifest.lock */,
 				D883907D2D76E91700BB5532 /* Sources */,
 				D883907E2D76E91700BB5532 /* Frameworks */,
 				D883907F2D76E91700BB5532 /* Resources */,
@@ -147,8 +191,6 @@
 				D88390842D76E91700BB5532 /* TbankIOSTests */,
 			);
 			name = TbankIOSTests;
-			packageProductDependencies = (
-			);
 			productName = TbankIOSTests;
 			productReference = D88390812D76E91700BB5532 /* TbankIOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D883909C2D76E91700BB5532 /* Build configuration list for PBXNativeTarget "TbankIOSUITests" */;
 			buildPhases = (
+				5DB692CB4C5C7BF06D4AB466 /* [CP] Check Pods Manifest.lock */,
 				D88390872D76E91700BB5532 /* Sources */,
 				D88390882D76E91700BB5532 /* Frameworks */,
 				D88390892D76E91700BB5532 /* Resources */,
+				70E3FD17050DCF4CD306067D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,8 +214,6 @@
 				D883908E2D76E91700BB5532 /* TbankIOSUITests */,
 			);
 			name = TbankIOSUITests;
-			packageProductDependencies = (
-			);
 			productName = TbankIOSUITests;
 			productReference = D883908B2D76E91700BB5532 /* TbankIOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -244,6 +286,117 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1352B531A7C5D743E74778AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TbankIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DB692CB4C5C7BF06D4AB466 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TbankIOS-TbankIOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A19E53F56A5A8865CA482CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TbankIOS/Pods-TbankIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TbankIOS/Pods-TbankIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TbankIOS/Pods-TbankIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70E3FD17050DCF4CD306067D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TbankIOS-TbankIOSUITests/Pods-TbankIOS-TbankIOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TbankIOS-TbankIOSUITests/Pods-TbankIOS-TbankIOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TbankIOS-TbankIOSUITests/Pods-TbankIOS-TbankIOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6937B78900BD3B82F48C495 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TbankIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D88390642D76E91500BB5532 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -284,6 +437,7 @@
 /* Begin XCBuildConfiguration section */
 		D88390952D76E91700BB5532 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12FA09C759B8762600893657 /* Pods-TbankIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +465,7 @@
 		};
 		D88390962D76E91700BB5532 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90F1BEE92CEB5A2CAEC404A7 /* Pods-TbankIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -373,7 +528,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -436,7 +591,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -457,6 +612,7 @@
 		};
 		D883909A2D76E91700BB5532 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C59BBAB7D3636E25C9B4CFB /* Pods-TbankIOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -475,6 +631,7 @@
 		};
 		D883909B2D76E91700BB5532 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 211510249BCA9A355C967168 /* Pods-TbankIOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -493,6 +650,7 @@
 		};
 		D883909D2D76E91700BB5532 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 229433AB0AE17E94B335EF81 /* Pods-TbankIOS-TbankIOSUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -509,6 +667,7 @@
 		};
 		D883909E2D76E91700BB5532 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EE74781BE8D7671820DBF61 /* Pods-TbankIOS-TbankIOSUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
