@@ -1,0 +1,6 @@
+framework module Pods_TbankIOS_TbankIOSUITests {
+  umbrella header "Pods-TbankIOS-TbankIOSUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
