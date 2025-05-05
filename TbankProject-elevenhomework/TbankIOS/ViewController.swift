@@ -88,62 +88,72 @@ class ViewController: UIViewController {
     
     // Animations
     private func startAnimations() {
-        // 1. Анимация логотипа - выезжает сверху
-        animateLogo()
+        // 1. Анимация логотипа - выезжает сверху (задержка 0)
+        animateLogo(delay: 0)
         
-        // 2. Через 0.2 сек - fade-заголовок
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.animateTitle()
-        }
+        // 2. Fade-заголовок (задержка 0.2)
+        animateTitle(delay: 0.2)
         
-        // 3. Через 0.4 сек - кнопка с bounce-эффектом
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            self.animateButton()
-            self.animateButtonShadow()
-        }
+        // 3. Кнопка с bounce-эффектом (задержка 0.4)
+        animateButton(delay: 0.4)
+        animateButtonShadow(delay: 0.4)
     }
     
-    private func animateLogo() {
+    private func animateLogo(delay: TimeInterval) {
         // Начальное положение - выше экрана
         logoImageView.transform = CGAffineTransform(translationX: 0, y: -200)
         
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.8,
+                      delay: delay,
+                      usingSpringWithDamping: 0.7,
+                      initialSpringVelocity: 0,
+                      options: .curveEaseOut,
+                      animations: {
             self.logoImageView.alpha = 1
             self.logoImageView.transform = .identity
         }, completion: nil)
     }
     
-    private func animateTitle() {
-        UIView.animate(withDuration: 0.6, animations: {
+    private func animateTitle(delay: TimeInterval) {
+        UIView.animate(withDuration: 0.6,
+                      delay: delay,
+                      options: .curveEaseIn,
+                      animations: {
             self.titleLabel.alpha = 1
         })
     }
     
-    private func animateButton() {
+    private func animateButton(delay: TimeInterval) {
         // Начальное состояние - маленький размер и поворот
         actionButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5).rotated(by: .pi / 8)
         
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.7,
+                      delay: delay,
+                      usingSpringWithDamping: 0.5,
+                      initialSpringVelocity: 0,
+                      options: .curveEaseOut,
+                      animations: {
             self.actionButton.alpha = 1
             self.actionButton.transform = .identity
         }, completion: nil)
     }
     
-    private func animateButtonShadow() {
-        let shadowAnimation = CABasicAnimation(keyPath: "shadowOpacity")
-        shadowAnimation.fromValue = 0
-        shadowAnimation.toValue = 0.5
-        shadowAnimation.duration = 0.5
-        shadowAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        shadowAnimation.fillMode = .forwards
-        shadowAnimation.isRemovedOnCompletion = false
-        
-        actionButton.layer.add(shadowAnimation, forKey: "shadowAnimation")
+    private func animateButtonShadow(delay: TimeInterval) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            let shadowAnimation = CABasicAnimation(keyPath: "shadowOpacity")
+            shadowAnimation.fromValue = 0
+            shadowAnimation.toValue = 0.5
+            shadowAnimation.duration = 0.5
+            shadowAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+            shadowAnimation.fillMode = .forwards
+            shadowAnimation.isRemovedOnCompletion = false
+            
+            self.actionButton.layer.add(shadowAnimation, forKey: "shadowAnimation")
+        }
     }
     
-    // Button Action
     @objc private func buttonTapped() {
-        // Анимация CornerRadius при нажатии
+        // Анимация Corner_Radius при нажатии
         let originalCornerRadius = actionButton.layer.cornerRadius
         
         UIView.animate(withDuration: 0.2, animations: {
