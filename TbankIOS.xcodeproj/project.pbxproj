@@ -30,6 +30,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D8426B672DD36282003E09EA /* Exceptions for "TbankIOSTests" folder in "TbankIOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockObject/CoffeeServiceMock.swift,
+				MockObject/ViewMock.swift,
+			);
+			target = D88390672D76E91500BB5532 /* TbankIOS */;
+		};
+		D8426B682DD36283003E09EA /* Exceptions for "TbankIOSTests" folder in "TbankIOSTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockObject/CoffeeServiceMock.swift,
+				MockObject/ViewMock.swift,
+			);
+			target = D88390802D76E91700BB5532 /* TbankIOSTests */;
+		};
 		D88390932D76E91700BB5532 /* Exceptions for "TbankIOS" folder in "TbankIOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -50,6 +66,10 @@
 		};
 		D88390842D76E91700BB5532 /* TbankIOSTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D8426B672DD36282003E09EA /* Exceptions for "TbankIOSTests" folder in "TbankIOS" target */,
+				D8426B682DD36283003E09EA /* Exceptions for "TbankIOSTests" folder in "TbankIOSTests" target */,
+			);
 			path = TbankIOSTests;
 			sourceTree = "<group>";
 		};
