@@ -2,9 +2,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLoad(){
         view.backgroundColor = .red
-        FourthLesson.start()
+        super.viewDidLoad()
+        FiveLesson.printMessage()
     }
 }
